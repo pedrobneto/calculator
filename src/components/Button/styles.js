@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     container: {
         height: windowWidth / 5.5,
         width: windowWidth / 5.5,
-        borderRadius: windowWidth / 10,
+        borderRadius: windowWidth / 11,
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -23,6 +23,16 @@ const styles = StyleSheet.create({
 
     orangeContainer: {
         backgroundColor: colors.orange,
+    },
+
+    doubledContainer: {
+        height: windowWidth / 5.5,
+        width: windowWidth / 2.25,
+        borderRadius: windowWidth / 5,
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+        backgroundColor: colors.gray,
+        paddingLeft: (windowWidth / 5.5) / 2 - RFPercentage(1),
     },
 
     textStyle: {

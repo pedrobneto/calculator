@@ -40,7 +40,7 @@ const Button = ({ lightGray, gray, orange, doubled, text }) => {
     }
     else if (doubled) {
         return (
-            <View style={styles.container}>
+            <View style={styles.doubledContainer}>
                 <Text style={[styles.textStyle, styles.whiteTextStyle]}>
                     {text}
                 </Text>

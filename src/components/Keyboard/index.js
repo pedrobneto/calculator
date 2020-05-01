@@ -32,8 +32,7 @@ const Keyboard = () => {
                 <Button text='+' orange />
             </View>
             <View style={styles.rowContainer}>
-                <Button text='0' gray />
-                <Button text='0' gray />
+                <Button text='0' doubled />
                 <Button text='.' gray />
                 <Button text='=' orange />
             </View>
