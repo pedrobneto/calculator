@@ -1,16 +1,24 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import { connect } from 'react-redux';
 
 import styles from './styles'
 
-const Screen = () => {
+const Screen = (props) => {
+
     return (
         <View style={styles.container}>
             <Text style={styles.textStyle}>
-                60
+                {props.number}
             </Text>
         </View>
     );
 }
 
-export default Screen;
+function mapStateToProps(state) {
+    const { number } = state;
+
+    return { number }
+}
+
+export default connect(mapStateToProps)(Screen);

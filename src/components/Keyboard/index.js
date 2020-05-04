@@ -4,14 +4,15 @@ import { View, Text } from 'react-native';
 import Button from '../Button'
 import styles from './styles'
 
-const Keyboard = () => {
+const Keyboard = (props) => {
+
     return (
         <View style={styles.container}>
             <View style={styles.rowContainer}>
                 <Button text='AC' lightGray />
                 <Button text='+/-' lightGray />
                 <Button text='%' lightGray />
-                <Button text='/' orange />
+                <Button text='÷' orange />
             </View>
             <View style={styles.rowContainer}>
                 <Button text='7' gray />

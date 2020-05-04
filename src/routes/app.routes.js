@@ -2,7 +2,7 @@ import React from 'react';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Calculator from '../pages/Calculator';
+import Calculator from '../screens/Calculator';
 
 const AppStack = createStackNavigator();
 
