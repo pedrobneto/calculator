@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, TouchableHighlight } from 'react-native';
 import { connect } from 'react-redux';
 import { Audio } from 'expo-av';
 
-import updateScreen from '../../store/actions/';
+import { updateScreen, addOperation, showResult, clearOperations } from '../../store/actions';
 import styles from './styles';
 
 const Button = ({ lightGray, gray, orange, doubled, text, dispatch }) => {
@@ -11,20 +11,26 @@ const Button = ({ lightGray, gray, orange, doubled, text, dispatch }) => {
     async function playSound(audioName) {
 
         const AUDIO_NAME = '../../../assets/sounds/matador.mp3'
-        const soundObject = new Audio.Sound();
+        //const soundObject = new Audio.Sound();
         try {
-            await soundObject.loadAsync(require('../../../assets/sounds/matador.mp3'));
-            await soundObject.playAsync();
-            console.log(await soundObject.getStatusAsync());
+            //await soundObject.loadAsync(require('../../../assets/sounds/matador.mp3'));
+            //await soundObject.playAsync();
 
         } catch (error) {
             if (error) console.log(error);
         }
     }
 
+    function buttonPress(audioName) {
+        playSound(audioName);
+        if (text == '=') dispatch(showResult());
+        else if (text == 'AC') dispatch(clearOperations());
+        else dispatch(addOperation(text));
+    }
+
     if (lightGray) {
         return (
-            <TouchableOpacity onPress={() => dispatch(updateScreen(text))}>
+            <TouchableOpacity onPress={() => buttonPress('matador.mp3')}>
                 <View style={[styles.container, styles.lightGrayContainer]}>
                     <Text style={[styles.textStyle, styles.blackTextStyle]}>
                         {text}
@@ -35,7 +41,7 @@ const Button = ({ lightGray, gray, orange, doubled, text, dispatch }) => {
     }
     else if (orange) {
         return (
-            <TouchableOpacity onPress={() => playSound('matador.mp3')}>
+            <TouchableOpacity onPress={() => buttonPress('matador.mp3')}>
                 <View style={[styles.container, styles.orangeContainer]}>
                     <Text style={[styles.textStyle, styles.whiteTextStyle]}>
                         {text}

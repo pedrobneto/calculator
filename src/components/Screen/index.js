@@ -16,9 +16,10 @@ const Screen = (props) => {
 }
 
 function mapStateToProps(state) {
-    const { number } = state;
+    const { number, operations } = state;
+    console.log(operations)
 
-    return { number }
+    return { number, operations }
 }
 
 export default connect(mapStateToProps)(Screen);
